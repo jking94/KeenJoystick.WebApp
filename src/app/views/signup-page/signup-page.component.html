@@ -1,0 +1,29 @@
+<h2 class="header">Sign Up!</h2>
+<div class="input-container my-24" [formGroup]="signupForm">
+  <mat-form-field appearance="outline" class="email-input my-8">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email">
+    <mat-error>Email required</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="password-input my-8">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" placeholder="Password" formControlName="password">
+    <mat-error>Password required:</mat-error>
+    <mat-error *ngIf="signupForm.controls.password.hasError('containsNumberError')">must contain a number</mat-error>
+    <mat-error *ngIf="signupForm.controls.password.hasError('minimumLengthError')">must be at least 8 characters</mat-error>
+    <mat-error *ngIf="signupForm.controls.password.hasError('containsSpecialCharacterError')">must contain a special character</mat-error>
+  </mat-form-field>
+  <mat-form-field *ngIf="signupForm.controls.password.valid && signupForm.controls.email.valid" appearance="outline" class="confirm-password-input my-8">
+    <mat-label>Confirm Password</mat-label>
+    <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+    <mat-error>Confirm Password required</mat-error>
+    <mat-error *ngIf="signupForm.controls.confirmPassword.hasError('passwordMatchError')">Passwords must match</mat-error>
+  </mat-form-field>
+  <button (click)="signupUser()" [disabled]="!signupForm.valid" class="mt-36 mb-24" color="primary" mat-raised-button>
+    Signup
+  </button>
+</div>
+<div class="login-container">
+  <p>Have an account already?</p>
+  <a [routerLink]="'/login'">Login</a>
+</div>

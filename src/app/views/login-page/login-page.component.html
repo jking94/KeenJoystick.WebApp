@@ -1,0 +1,18 @@
+<h2 class="header">Welcome!</h2>
+<div class="input-container my-24" [formGroup]="loginForm">
+  <mat-form-field appearance="outline" class="email-input my-8">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email">
+    <mat-error>Email required</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="password-input my-8">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" placeholder="Password" formControlName="password">
+    <mat-error>Password required</mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="primary" class="mt-36 mb-24" [disabled]="!loginForm.valid" (click)="loginUser()">Login</button>
+</div>
+<div class="signup-container">
+  <p>Dont have an account?</p>
+  <a [routerLink]="'/signup'">Sign up!</a>
+</div>
