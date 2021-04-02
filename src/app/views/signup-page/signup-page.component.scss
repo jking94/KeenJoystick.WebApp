@@ -37,6 +37,13 @@
       grid-column: 2 / 3;
       grid-row: 4 / 5;
     }
+
+    .spinner-container {
+      grid-column: 2 / 3;
+      grid-row: 4 / 5;
+      display: flex;
+      justify-content: center;
+    }
   }
 
   .login-container {
@@ -48,16 +55,6 @@
   a {
     cursor: pointer;
   }
-  .spinner-container {
-    display: flex;
-    justify-content: center;
-    
-    mat-spinner {
-      width: 25px;
-      height: 25px;
-    }
-  }
-
 
   @media #{$XSmall} {
     grid-template-columns: 1fr;
