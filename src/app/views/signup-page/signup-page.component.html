@@ -19,9 +19,12 @@
     <mat-error>Confirm Password required</mat-error>
     <mat-error *ngIf="signupForm.controls.confirmPassword.hasError('passwordMatchError')">Passwords must match</mat-error>
   </mat-form-field>
-  <button (click)="signupUser()" [disabled]="!signupForm.valid" class="mt-36 mb-24" color="primary" mat-raised-button>
+  <button *ngIf="!signingUp" (click)="signupUser()" [disabled]="!signupForm.valid" class="mt-36 mb-24" color="primary" mat-raised-button>
     Signup
   </button>
+  <div class="spinner-container">
+    <mat-spinner *ngIf="signingUp"></mat-spinner>
+  </div>
 </div>
 <div class="login-container">
   <p>Have an account already?</p>

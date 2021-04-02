@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class SignupPageComponent implements OnInit {
 
   public signupForm!: FormGroup;
+  public signingUp = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,12 +40,15 @@ export class SignupPageComponent implements OnInit {
   }
 
   signupUser(){
+    this.signingUp = true;
     this.authService.signupUser(
       {
         email: this.signupForm.controls.email.value,
         password: this.signupForm.controls.password.value
       }
     ).subscribe((loginObj: any) => {
+      this.signingUp = false;
+      console.log('loginObj', loginObj);
       this.authService.setToken(loginObj.value.token);
       this.router.navigate(['/']);
     });

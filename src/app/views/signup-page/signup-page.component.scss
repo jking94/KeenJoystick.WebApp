@@ -48,6 +48,16 @@
   a {
     cursor: pointer;
   }
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    
+    mat-spinner {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
 
   @media #{$XSmall} {
     grid-template-columns: 1fr;
