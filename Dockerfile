@@ -21,4 +21,4 @@ RUN npm install -g @angular/cli@11.0.3
 COPY . /app
 
 # start app
-CMD ng serve --host 0.0.0.0
+CMD CMD ng serve --proxy-config ./app/src/proxy.conf.json --host 0.0.0.0

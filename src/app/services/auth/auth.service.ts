@@ -23,11 +23,11 @@ export class AuthService {
   }
 
   signupUser(emailAndPassword: Auth): Observable<any> {
-    return this.http.post('http://user-api/api/v0/user', emailAndPassword);
+    return this.http.post('/api/v0/user', emailAndPassword);
   }
 
   loginUser(emailAndPassword: Auth): Observable<any> {
-    return this.http.post('http://user-api/api/v0/user/login', emailAndPassword);
+    return this.http.post('/api/v0/user/login', emailAndPassword);
   }
 
   logoutUser() {
