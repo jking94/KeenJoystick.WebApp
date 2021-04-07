@@ -1,20 +1,11 @@
 
 {
-  "/api/v0/user": {
-    "target": "https://user-api/api/v0/user",
-    "secure": true,
+  "/user-api/*": {
+    "target": "http://user-api/api/v0/user/",
+    "secure": false,
     "changeOrigin": true,
     "pathRewrite": {
-      "^/api/v0/user": ""
-    }
-  },
-
-  "/api/v0/user/login": {
-    "target": "https://user-api/api/v0/user/login",
-    "secure": true,
-    "changeOrigin": true,
-    "pathRewrite": {
-      "^/api/v0/user/login": ""
+      "^/user-api/": ""
     }
   }
 }
